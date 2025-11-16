@@ -64,7 +64,10 @@ vi ~/.gitconfig
 
 ```shell
 curl -LsSf https://astral.sh/uv/install.sh | sh
+
 source $HOME/.local/bin/env
+
+# Python の各バージョンをインストール
 uv python install 3.14 3.13 3.12 3.11 3.10 3.9
 ```
 
@@ -73,13 +76,12 @@ uv python install 3.14 3.13 3.12 3.11 3.10 3.9
 ## Docker
 
 ```shell
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
-rm get-docker.sh
+curl -fsSL https://get.docker.com | sh
 
 # sudoなしで使用できるようにする
 sudo usermod -aG docker $USER
 
+# 以下、バージョンが表示されることを確認
 docker --version
 docker compose version
 ```
@@ -110,6 +112,7 @@ local   all             all                                     md5
 ```
 
 ```shell
+# サービス再起動
 sudo service postgresql restart
 ```
 
