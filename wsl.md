@@ -66,6 +66,8 @@ source $HOME/.local/bin/env
 uv python install 3.14 3.13 3.12 3.11 3.10 3.9
 ```
 
+---
+
 ## Docker
 
 ```shell
@@ -97,6 +99,8 @@ sudo apt install postgresql postgresql-contrib
 sudo vi /etc/postgresql/16/main/pg_hba.conf
 # 「16」はインストールしたバージョンに合わせる
 ```
+
+以下の通り編集
 
 ```text
 # local   all             all                                     peer
