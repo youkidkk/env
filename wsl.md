@@ -17,7 +17,9 @@ wsl --unregister Ubuntu-24.04
 # 対象のWSL名を指定する
 ```
 
-## Visual Studio Code
+---
+
+## Visual Studio Code ※ホスト側アプリへのパス設定
 
 ```shell
 echo 'alias code="'\'''`which code`''\''"' >> .bashrc
