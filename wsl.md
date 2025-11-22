@@ -14,16 +14,7 @@
 ```shell
 wsl -l -v
 wsl --unregister Ubuntu-24.04
-# 対象のWSL名を指定する
-```
-
----
-
-## Visual Studio Code ※ホスト側アプリへのパス設定
-
-```shell
-echo 'alias code="'\'''`which code`''\''"' >> .bashrc
-source ~/.bashrc
+# ※対象のWSL名を指定する
 ```
 
 ---
@@ -32,7 +23,7 @@ source ~/.bashrc
 
 ### インストールの確認
 
-Ubuntu では既にインストール済み
+Ubuntu 24.04 では既にインストール済み
 
 ```shell
 which git
@@ -64,8 +55,8 @@ vi ~/.gitconfig
 
 ```shell
 curl -LsSf https://astral.sh/uv/install.sh | sh
-
 source $HOME/.local/bin/env
+uv --version
 
 # Python の各バージョンをインストール
 uv python install 3.14 3.13 3.12 3.11 3.10 3.9
@@ -97,18 +88,16 @@ sudo apt update
 sudo apt install postgresql postgresql-contrib
 ```
 
-### パスワード認証の設定
+### パスワード認証の確認
 
 ```shell
-sudo vi /etc/postgresql/16/main/pg_hba.conf
-# 「16」はインストールしたバージョンに合わせる
+sudo vi $(sudo find /etc -name pg_hba.conf)
 ```
 
-以下の通り編集
+以下の行を確認
 
 ```text
-# local   all             all                                     peer
-local   all             all                                     md5
+host    all             all             127.0.0.1/32            scram-sha-256
 ```
 
 ```shell
